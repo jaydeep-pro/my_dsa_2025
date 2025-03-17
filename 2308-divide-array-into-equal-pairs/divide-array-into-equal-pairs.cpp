@@ -1,16 +1,15 @@
 class Solution {
 public:
     bool divideArray(vector<int>& nums) {
-        unordered_map<int,int>mp;
+ sort(nums.begin(), nums.end());
+ int i=0;
 
-        for(int i=0;i<nums.size();i++){
-            mp[nums[i]]++;
-        }
+ while(i < nums.size()-1){
+    if(nums[i] != nums[i+1] ) return false;
 
-        for(auto it: mp){
-            if(it.second % 2 == 1) return false;
-        }
+    i+=2;
+ }
 
-        return true;
+ return true;
     }
 };
